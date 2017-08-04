@@ -1,0 +1,31 @@
+﻿@using System.Web.Mvc.Html
+@model IEnumerable<ContosoUniversity.ViewModels.EnrollmentDateGroup>
+
+@{
+    ViewBag.Title = "Student Body Statistics";
+}
+
+<h2>Student Body Statistics</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Enrollment Date
+        </th>
+        <th>
+            Students
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink(@item.EnrollmentDate.ToString().Substring(0,10),"AboutStats","Home",new {enrollmentDate = item.EnrollmentDate},null)              
+            </td>
+            <td>
+                @item.StudentCount
+            </td>
+        </tr>
+    }
+</table>

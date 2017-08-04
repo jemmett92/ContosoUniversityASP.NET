@@ -1,0 +1,35 @@
+﻿@model IEnumerable<ContosoUniversity.ViewModels.CourseNameGroup>
+
+@{
+    ViewBag.Title = "Courses";
+}
+
+
+<h2>Course Titles</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateCourse")
+</p>
+
+<table class ="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Course Name", "Instructors") 
+        </th>
+        <th>
+            No. of Student(s)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink(@item.Title,"CourseStudents","Home",new {courseTitle = item.Title},null)
+            </td>           
+            <td>
+                @Html.ActionLink(@item.StudentCount.ToString(),"Names")
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,41 @@
+﻿@model IEnumerable<ContosoUniversity.ViewModels.EnrollmentDateGroup>
+
+@{
+    ViewBag.Title = "Courses Students";
+}
+
+
+<h2>Course Students</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateCourse")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+           Course Name
+        </th>
+        <th>
+            First Name
+        </th>
+        <th>
+            Last Name
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseName)
+            </td>
+            <td>
+                @item.Firstname
+            </td>
+            <td>
+                @item.LastName
+            </td>
+        </tr>
+    }
+</table>

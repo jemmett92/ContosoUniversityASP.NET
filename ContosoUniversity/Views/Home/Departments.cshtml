@@ -1,0 +1,34 @@
+﻿@model IEnumerable<ContosoUniversity.ViewModels.DepartmentNameGroup>
+@{
+    ViewBag.Title = "Departments";
+}
+
+<h2>Departments</h2>
+
+<p>
+    @Html.ActionLink("Create New","CreateDept")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            Department Title
+        </th>
+        <th>
+            Department ID
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @item.DeptID
+
+            </td>
+        </tr>
+    }
+</table>
